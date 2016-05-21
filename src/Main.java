@@ -3,8 +3,6 @@
  * and open the template in the editor.
  */
 
-package sudoku;
-
 /**
  *
  * @author anil tallam
@@ -56,24 +54,9 @@ public class Main {
                         {0,8,0,0,7,0,0,0,2},
                         {0,2,6,0,0,9,0,0,5}
         };
-        sudoku1 s=new sudoku1();
-        s.insert(inpuh);
+        Sudoku s=new Sudoku(inpuh);
         s.solve();
         s.print();
-        //s.rm_pval_row(0, 6);
-        ///*
-        int y=1,x=1;
-        System.out.println(s.cell[y][x].pvalue[0]);
-        System.out.println(s.cell[y][x].pvalue[1]);
-        System.out.println(s.cell[y][x].pvalue[2]);
-        System.out.println(s.cell[y][x].pvalue[3]);
-        System.out.println(s.cell[y][x].pvalue[4]);
-        System.out.println(s.cell[y][x].pvalue[5]);
-        System.out.println(s.cell[y][x].pvalue[6]);
-        System.out.println(s.cell[y][x].pvalue[7]);
-        System.out.println(s.cell[y][x].pvalue[8]);
-        System.out.println(s.cell[y][x].pcount);
-        //*/
     }
 
 }

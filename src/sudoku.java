@@ -3,83 +3,21 @@
  * and open the template in the editor.
  */
 
-package sudoku;
-
-/**
- *
- * @author anil tallam
- */
-class box
-{
-    int value;
-    int[] p_value=new int[9];
-    int p_count;
-    box(int value){
-        int i;
-        if(value==0){
-            this.value=value;
-            for(i=0;i<9;i++){
-                p_value[i]=i+1;
-            }
-            p_count=9;
-        }
-        else{
-            this.value=value;
-            for(i=0;i<9;i++){
-                p_value[i]=0;
-            }
-            p_count=0;
-        }
-    }
-    void remove(int val){
-        if(p_value[val-1]!=0)
-        {
-        p_value[val-1]=0;
-        p_count--;
-        }
-    }
-    void addpvalue(){
-        int k,pval;
-        for(k=0;k<9;k++)
-        {
-                if((pval=p_value[k]) != 0)
-                value=pval;
-        }
-    }
-    void addvalue(int val){
-        value=val;
-        int k;
-        for(k=0;k<9;k++)
-        {
-                if(k == (val-1))
-                p_value[k]=val;
-                else
-                    p_value[k]=0;
-        }
-    }
-    int count(){
-        int i,j=0;
-        for(i=0;i<9;i++){
-            if(p_value[i]!=0) j++;
-        }
-        return j;
-    }
-}
-public class sudoku {
-    box[][] cell=new box[9][9];
+public class Sudoku {
+    Box[][] cell=new Box[9][9];
     int fill_count=0;
-    sudoku(int a[][])
+    Sudoku(int a[][])
     {
         int i,j;
         for(i=0;i<9;i++){
             for(j=0;j<9;j++){
-                cell[i][j]=new box(a[i][j]);
+                cell[i][j]=new Box(a[i][j]);
                 if(a[i][j]!=0){
                     fill_count++;
                 }
             }
         }
-        System.out.println("\n"+fill_count);
+        //System.out.println("\n"+fill_count);
     }
     public void solve(){
         int i=0,j=0;
@@ -97,7 +35,7 @@ public class sudoku {
         i++;
         j++;
         }
-        System.out.println(""+j);
+        //System.out.println(""+j);
     }
     void check(){
 	int i,j,val;
@@ -299,7 +237,7 @@ public class sudoku {
                     break;
                 }
             }
-            rm_pval_col(i,val);
+            rm_pval_col(i,crow, val);  //late correction
         }
         if(ccol==1){
             for(i=0;i<3;i++){
@@ -308,7 +246,7 @@ public class sudoku {
                     break;
                 }
             }
-            rm_pval_row(i,val);
+            rm_pval_row(ccol, i,val); //latest correction
         }
 
     }
